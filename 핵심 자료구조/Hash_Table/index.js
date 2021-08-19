@@ -22,15 +22,14 @@ class Table {
 
   insert(key, value) {
     const hash = this.hash(key);
+    console.log(`${key}->${hash}`);
     if (!this.cells[hash]) {
       // 테이블 주소가 비어있는 경우
       this.cells[hash] = new Node(key, value);
-    }
-    if (this.cells[hash] && this.cells[hash].key === key) {
+    } else if (this.cells[hash] && this.cells[hash].key === key) {
       // 이미 주소에 데이터 존재, 하지만 키가 같은 경우 값을 덮어쓴다.
       this.cells[hash].value = value;
-    }
-    if (this.cells[hash] && this.cells[hash].key !== key) {
+    } else if (this.cells[hash] && this.cells[hash].key !== key) {
       // 이미 주소에 데이터 존재, 키 값도 다른 경우
       let node = this.cells[hash];
 
@@ -70,7 +69,7 @@ class Table {
     for (let node of this.cells) {
       let link = [];
       while (node) {
-        link.push(node);
+        link.push(node); // 배열에 연결된 노드를 담아 출력하고 있다.(이중배열 출력)
         node = node.next;
       }
       table.push(link);
@@ -81,7 +80,7 @@ class Table {
 
 function hashTableTest() {
   const table = new Table(5);
-  const searchData = 'juy';
+  const searchData = 'lll';
 
   table.insert('gas', 1);
   table.insert('asf', 2);

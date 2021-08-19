@@ -5,7 +5,7 @@ const aclean = arr => {
 
   for (let str of arr) {
     const key = str.toLowerCase().split('').sort().join('');
-    map.set(key, str);
+    map.set(key, str); // 같은 키에 set 되면 덮어쓴다.
   }
   return Array.from(map.values());
 };
