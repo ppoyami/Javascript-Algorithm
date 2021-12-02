@@ -76,6 +76,16 @@ class Heap {
   print = () => console.log(this.heap);
 }
 
+class PriorityQueue extends Heap {
+  constructor() {
+    super();
+  }
+
+  enqueue = data => this.insert(data);
+  dequeue = () => this.remove();
+  isEmpty = () => this.heap.length <= 0;
+}
+
 // * Test
 
 const heap = new Heap();
@@ -89,3 +99,15 @@ heap.insert(14);
 console.log(heap.remove());
 
 heap.print();
+
+const priorityQ = new PriorityQueue();
+
+priorityQ.enqueue(13);
+priorityQ.enqueue(7);
+priorityQ.enqueue(1);
+priorityQ.enqueue(2);
+
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());
