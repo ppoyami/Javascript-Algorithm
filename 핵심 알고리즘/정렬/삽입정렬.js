@@ -12,5 +12,9 @@ function solution(arr) {
 }
 
 let arr = [11, 7, 5, 6, 10, 9];
+let arr2 = [5, 6, 1, 2, 4, 3];
+
 console.log(solution(arr));
 console.log(arr);
+console.log(solution(arr2));
+console.log(arr2);
